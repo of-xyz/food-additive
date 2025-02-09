@@ -8,11 +8,11 @@ import (
 
 func NewRouter() *gin.Engine {
 	router := gin.Default()
-    router.MaxMultipartMemory = 8 << 20 // 8 MiB
+	router.MaxMultipartMemory = 8 << 20 // 8 MiB
 
-    foodAdditive := new(controller.FoodAdditiveController)
-    router.POST("/", foodAdditive.Detect)
-    // TODO: auth
+	foodAdditive := new(controller.FoodAdditiveController)
+	router.POST("/", foodAdditive.Detect)
+	// TODO: auth
 
 	return router
 }

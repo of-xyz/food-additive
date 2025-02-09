@@ -11,7 +11,7 @@ import (
 var db *sql.DB
 
 func CreateNewClient() {
-    // TODO: cleanup
+	// TODO: cleanup
 	_, err := pgxv5.RegisterDriver("cloudsql-postgres", cloudsqlconn.WithIAMAuthN())
 	if err != nil {
 		log.Fatalf("Failed to register driver: %v", err)
@@ -27,5 +27,5 @@ func CreateNewClient() {
 }
 
 func GetDB() *sql.DB {
-    return db
+	return db
 }

@@ -1,19 +1,18 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 
 	"api/config"
 	"api/db"
 	"api/server"
 )
 
-
 func main() {
-    fmt.Println("start")
+	fmt.Println("start")
 
-    config.LoadConfig()
-    db.CreateNewClient()
+	config.LoadConfig()
+	db.CreateNewClient()
 
-    server.Run()
+	server.Run()
 }

@@ -3,11 +3,10 @@ package model
 import (
 	"log"
 
-    "database/sql"
+	"database/sql"
 
 	"api/db"
 )
-
 
 type FoodAdditive struct {
 	ID          int    `json:"id"`
@@ -15,7 +14,6 @@ type FoodAdditive struct {
 	Purpose     string `json:"purpose"`
 	Description string `json:"description"`
 }
-
 
 func (h FoodAdditive) QueryByName(entity string) (*FoodAdditive, error) {
 	db_client := db.GetDB()

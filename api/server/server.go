@@ -1,7 +1,7 @@
 package server
 
 import (
-    "strconv"
+	"strconv"
 
 	"api/config"
 )
@@ -9,5 +9,5 @@ import (
 func Run() {
 	config := config.GetServerConfig()
 	r := NewRouter()
-    r.Run(":" + strconv.Itoa(config.PORT))
+	r.Run(":" + strconv.Itoa(config.PORT))
 }
