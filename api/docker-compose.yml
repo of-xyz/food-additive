@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: api
+    volumes: # マウント
+      - .:/app/
+    environment:
+      POSTGRES_DB: 'postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '0MIzLNLZX&qZ9:lZ'
+      PORT: "8080"
+      PATH: "${PATH}:/go/bin"
+      GOOGLE_APPLICATION_CREDENTIALS: "/app/gcp-credential.json"
+      INSTANCE_CONNECTION_NAME: "chum-312212:asia-northeast1:food-additive"
+    tty: true # コンテナの永続化
