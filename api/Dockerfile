@@ -1,3 +1,4 @@
+# builder
 FROM golang:1.23.2-bullseye AS builder
 
 WORKDIR /app
@@ -8,18 +9,18 @@ RUN go mod download
 COPY config config
 COPY controller controller
 COPY db db
-COPY gcp-credential.json .
+# dev: COPY gcp-credential.json .
 COPY main.go .
 COPY model model
 COPY server server
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o main ./main.go
 
-FROM alpine:latest
 
-# ビルドされたバイナリをコピー
+# runner
+FROM alpine:latest
 COPY --from=builder /app/main /main
-COPY --from=builder /app/gcp-credential.json /app/gcp-credential.json
+# dev: COPY --from=builder /app/gcp-credential.json /app/gcp-credential.json
 
 EXPOSE 8080
 
