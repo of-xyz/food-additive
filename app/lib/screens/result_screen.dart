@@ -92,6 +92,28 @@ class ResultScreen extends StatelessWidget {
                               ),
                           ],
                         ),
+                        if (additive['purpose'] != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              '用途: ${additive['purpose']}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ),
+                        if (additive['description'] != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              additive['description'],
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black54,
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
